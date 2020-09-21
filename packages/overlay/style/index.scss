@@ -1,0 +1,31 @@
+.vui-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.vui-fade {
+    &-enter {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: all 0.3s;
+    }
+    &-enter-active-to {
+        opacity: 1;
+    }
+
+    &-leave {
+        opacity: 1;
+    }
+    &-leave-active {
+        transition: all 0.3s;
+    }
+    &-leave-to {
+        opacity: 0;
+    }
+}

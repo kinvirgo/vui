@@ -1,0 +1,140 @@
+.vui-lockScroll {
+    overflow: hidden;
+}
+.vui-forbidClick {
+    pointer-events: none;
+}
+
+.vui-message {
+    position: fixed;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    min-width: 120px;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 3px;
+    min-height: 20px;
+    background: rgba(229, 229, 229, 0.95);
+    transform: translate3d(-50%, -50%, 0);
+
+    &__top {
+        top: 50px;
+        top: 15vh;
+    }
+
+    &__middle {
+        top: 50%;
+    }
+
+    &__bottom {
+        bottom: 50px;
+        bottom: 10vh;
+    }
+    /* 内容文本 */
+    &__text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: currentColor;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    // 垂直
+    &__vertical {
+        flex-direction: column;
+        max-width: 120px;
+
+        .vui-message__icon {
+            width: 50px;
+            height: 50px;
+            padding: 12px 0;
+            &--img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    // 水平
+    &__horizontal {
+        .vui-message__icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+
+            &--img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .vui-message__text {
+            flex: 1;
+        }
+    }
+}
+
+.vui-fade {
+    &-enter {
+        opacity: 0;
+    }
+    &-enter-active {
+        transition: all 0.3s;
+    }
+    &-enter-active-to {
+        opacity: 1;
+    }
+
+    &-leave {
+        opacity: 1;
+    }
+    &-leave-active {
+        transition: all 0.3s;
+    }
+    &-leave-to {
+        opacity: 0;
+    }
+}
+
+.vui-loading__circular {
+    display: block;
+    width: 100%;
+    height: 100%;
+    animation: van-rotate 0.8s linear infinite;
+
+    circle {
+        animation: van-circular 1.5s ease-in-out infinite;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+    }
+}
+
+@keyframes van-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes van-circular {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -40;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -120;
+    }
+}
